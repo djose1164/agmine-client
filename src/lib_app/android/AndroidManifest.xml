@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- versionName is SHOWN TO USERS and can be a freeform string -->
+<!-- versionCode must be an ever-increasing integer used by play store -->
+<manifest package="com.mycompany.myapp"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          android:versionName="2020-Nov-01"
+          android:versionCode="1"
+          android:installLocation="auto">
+    <!-- %%INSERT_PERMISSIONS -->
+    <!-- %%INSERT_FEATURES -->
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true" />
+
+    <application
+        android:name="org.qtproject.qt.android.bindings.QtApplication"
+        android:allowBackup="true"
+        android:allowNativeHeapPointerTagging="false"
+        android:debuggable="true"
+        android:fullBackupOnly="false"
+        android:hardwareAccelerated="true"
+        android:label="app"
+        android:requestLegacyExternalStorage="true" >
+        <!-- if you subclass QtActivity, you must name _YOUR_ custom class in the
+             activity tag, or else the onCreate (and other methods) won't be called on it. -->
+        <activity
+            android:name="com.mycompany.myapp.MyAppActivity"
+            android:configChanges="orientation|uiMode|screenLayout|screenSize|smallestScreenSize|layoutDirection|locale|fontScale|keyboard|keyboardHidden|navigation|mcc|mnc|density"
+            android:exported="true"
+            android:label="app"
+            android:launchMode="singleTop"
+            android:screenOrientation="unspecified" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="app" />
+            <meta-data
+                android:name="android.app.arguments"
+                android:value="" />
+            <meta-data
+                android:name="android.app.extract_android_style"
+                android:value="minimal" />
+        </activity>
+    </application>
+</manifest>
